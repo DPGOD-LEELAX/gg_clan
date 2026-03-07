@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Galunggong Clan · PUBGM Pro Portfolio</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f6f2;
+            background-image: radial-gradient(circle at 10% 20%, rgba(230, 215, 180, 0.2) 0%, transparent 30%),
+                              radial-gradient(circle at 90% 70%, rgba(200, 180, 140, 0.15) 0%, transparent 40%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            color: #2e3a2a;
+        }
+
+        /* main container */
+        .clan-portfolio {
+            max-width: 1280px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: clamp(32px, 5vw, 56px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1), 0 4px 18px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(220, 200, 160, 0.5) inset;
+            padding: clamp(1.5rem, 4vw, 2.8rem);
+        }
+
+        /* header */
+        .clan-header {
+            text-align: center;
+            margin-bottom: clamp(2rem, 5vw, 3.5rem);
+        }
+
+        .clan-header h1 {
+            font-size: clamp(2.5rem, 8vw, 4.2rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #5b7e48, #8b6e4b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 20px rgba(140, 120, 70, 0.15);
+            word-break: break-word;
+        }
+
+        .clan-tagline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            font-weight: 400;
+            font-size: clamp(0.9rem, 3vw, 1.2rem);
+            color: #7a6b50;
+            background: #ede9ddb0;
+            padding: 0.6rem 1.5rem;
+            border-radius: 80px;
+            width: fit-content;
+            margin: 0.5rem auto 0;
+            border: 1px solid #dfd2b6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            letter-spacing: 0.3px;
+            flex-wrap: wrap;
+        }
+
+        /* member grid */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(1rem, 2vw, 1.8rem);
+            margin: clamp(1.5rem, 4vw, 2.8rem) 0;
+        }
+
+        /* member card */
+        .member-card {
+            background: #ffffffd9;
+            backdrop-filter: blur(4px);
+            border-radius: clamp(24px, 4vw, 36px);
+            padding: clamp(1.2rem, 3vw, 1.8rem) 0.8rem;
+            box-shadow: 0 12px 24px -16px rgba(70, 60, 30, 0.12), 0 0 0 1px #ece0c8 inset;
+            text-align: center;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* photo container */
+        .member-photo {
+            width: clamp(90px, 20vw, 130px);
+            height: clamp(90px, 20vw, 130px);
+            border-radius: 50%;
+            background: linear-gradient(145deg, #ebe1cd, #ddd0b4);
+            box-shadow: 0 8px 14px -6px rgba(100, 80, 40, 0.2), 0 0 0 4px white, 0 0 0 5px #cfbd95;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Important for image cropping */
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover .member-photo img {
+            transform: scale(1.05);
+        }
+
+        .member-name {
+            font-size: clamp(1.3rem, 4vw, 1.9rem);
+            font-weight: 700;
+            color: #405332;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+            margin-bottom: 0.25rem;
+            word-break: break-word;
+            padding: 0 0.3rem;
+        }
+
+        /* AKA wrapper */
+        .aka-wrapper {
+            background: #f1ecdbb0;
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            margin: 0.5rem 0 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            border: 1px solid #dac99e;
+            font-size: clamp(0.9rem, 3vw, 1.15rem);
+            color: #6e5f3f;
+            backdrop-filter: blur(2px);
+            max-width: 90%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .aka-prefix {
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+            letter-spacing: 1px;
+            color: #a38f60;
+        }
+
+        .aka-editable {
+            background: transparent;
+            border: 1px solid #ddd0b0;
+            border-radius: 30px;
+            padding: 0.2rem 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: #435735;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            min-width: 70px;
+            max-width: 120px;
+            text-align: center;
+        }
+
+        .aka-editable:focus {
+            background: white;
+            outline: none;
+            border-color: #b09f78;
+            box-shadow: 0 0 0 3px #e9dcbf;
+        }
+
+        .member-role {
+            font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+            color: #8d7d5e;
+            font-weight: 400;
+            margin-top: 0.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* join section */
+        .join-request-section {
+            margin: clamp(2rem, 5vw, 3.8rem) 0 1.5rem;
+            background: #ece5d6b3;
+            backdrop-filter: blur(6px);
+            border-radius: clamp(40px, 8vw, 90px);
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            border: 1px solid #e2d2b2;
+            box-shadow: 0 8px 18px -8px rgba(120, 100, 60, 0.08);
+            text-align: center;
+        }
+
+        .join-request-section h2 {
+            font-size: clamp(1.5rem, 5vw, 2.4rem);
+            font-weight: 600;
+            color: #5f724b;
+            letter-spacing: -0.3px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .qr-code-frame {
+            display: inline-block;
+            background: white;
+            padding: 0.5rem;
+            border-radius: clamp(30px, 6vw, 48px);
+            box-shadow: 0 8px 18px -6px #b3a27d;
+            margin: 0.5rem auto;
+        }
+
+        .qr-code-img {
+            max-width: min(180px, 50vw);
+            width: 100%;
+            border-radius: clamp(20px, 4vw, 30px);
+            background: #faf3e3;
+            border: 2px solid #cfb787;
+        }
+
+        .btn-join {
+            background: #cbb281;
+            border: none;
+            color: #283e20;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
+            font-weight: 600;
+            padding: 0.8rem clamp(1.5rem, 4vw, 3rem);
+            border-radius: 90px;
+            box-shadow: 0 6px 0 #8d744b, 0 10px 20px -8px #ab925e;
+            cursor: pointer;
+            transition: 0.05s linear;
+            border: 1px solid #f5edcd;
+            margin-top: 1.5rem;
+            font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .btn-join:active {
+            transform: translateY(5px);
+            box-shadow: 0 2px 0 #8d744b;
+        }
+
+        .btn-join i {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+        }
+
+        /* footer */
+        .clan-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            color: #7f6e51;
+            border-top: 1px solid #ddcfb1;
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-weight: 300;
+            font-size: clamp(0.8rem, 2.5vw, 1rem);
+        }
+
+        .edit-hint {
+            background: #e7decb;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+            color: #5b533b;
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 700px) {
+            .members-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .member-card:first-child {
+                grid-column: span 2;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.5rem;
+            }
+            
+            .members-grid {
+                gap: 0.8rem;
+            }
+            
+            .member-card {
+                padding: 1rem 0.5rem;
+            }
+            
+            .aka-wrapper {
+                padding: 0.3rem 0.8rem;
+            }
+            
+            .btn-join {
+                padding: 0.6rem 1.2rem;
+                font-size: 1.1rem;
+            }
+            
+            .join-request-section h2 i {
+                display: none;
+            }
+            
+            .clan-footer {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .members-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .member-card:first-child {
+                grid-column: auto;
+            }
+            
+            .aka-editable {
+                min-width: 60px;
+            }
+        }
+
+        /* Fix for very small screens */
+        @media (max-width: 320px) {
+            .aka-wrapper {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            
+            .clan-tagline {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clan-portfolio">
+        <!-- header -->
+        <div class="clan-header">
+            <h1>GALUNGGONG</h1>
+            <div class="clan-tagline">
+                <i class="fas fa-crosshairs"></i> PUBGM · ELITE SQUAD <i class="fas fa-skull"></i>
+            </div>
+        </div>
+
+        <!-- ROW 1: LEADER (SARJ) -->
+        <div class="member-card" style="max-width: 350px; width: 100%; margin: 0 auto 2rem;">
+            <div class="member-photo">
+                <img src="images/sarj.jpg" alt="Jhon Joven - SARJ">
+            </div>
+            <div class="member-name">Jhon Joven</div>
+            
+            <div class="aka-wrapper">
+                <span class="aka-prefix">AKA</span>
+                <input type="text" class="aka-editable" value="SARJ" placeholder="SARJ">
+            </div>
+            
+            <div style="background: #f0e8d6; color: #4d613f; padding: 0.25rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500; display: inline-block; margin: 0.3rem 0; border: 1px solid #d2bd8f;">
+                ★ FOUNDER · IGL ★
+            </div>
+            
+            <div class="member-role">LEADER PALAGI</div>
+        </div>
+
+        <!-- ROW 2: 3 members -->
+        <div class="members-grid">
+            <!-- Henry -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/lax.jpg" alt="Henry Agcaoili - LEELAX">
+                </div>
+                <div class="member-name">Henry Agcaoili</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="LEELAX" placeholder="LEELAX">
+                </div>
+                <div class="member-role">REKLAMADOR PALAGI</div>
+            </div>
+            
+            <!-- Chin -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/flusha.jpg" alt="Chin Santiago - FLUSHA">
+                </div>
+                <div class="member-name">Chin Santiago</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="FLUSHA" placeholder="FLUSHA">
+                </div>
+                <div class="member-role">THE FOOL LOVER</div>
+            </div>
+            
+            <!-- Jon -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/jon.jpg" alt="Jon Cantos Gunio - JON">
+                </div>
+                <div class="member-name">Jon Cantos Gunio</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="JON" placeholder="JON">
+                </div>
+                <div class="member-role">PALYADONG FLANKER</div>
+            </div>
+        </div>
+
+        <!-- ROW 3: next 3 -->
+        <div class="members-grid">
+            <!-- Regiel -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/bon.jpg" alt="Regiel Loking - BON">
+                </div>
+                <div class="member-name">Regiel Loking</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="BON" placeholder="BON">
+                </div>
+                <div class="member-role">TAGA BULONG</div>
+            </div>
+            
+            <!-- Markjervey -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/dong.jpg" alt="Markjervey Ocasion - DONG">
+                </div>
+                <div class="member-name">Markjervey Ocasion</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="DONG" placeholder="DONG">
+                </div>
+                <div class="member-role">SUKI NG TRASTOK</div>
+            </div>
+            
+            <!-- Francis -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/kernel.jpg" alt="Francis John Ocasio - KERNEL">
+                </div>
+                <div class="member-name">Francis John Ocasio</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="KERNEL" placeholder="KERNEL">
+                </div>
+                <div class="member-role">PAREHAS SILA NI DONG</div>
+            </div>
+        </div>
+
+        <!-- ROW 4: last 3 -->
+        <div class="members-grid">
+            <!-- Mico -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/aesy.jpg" alt="Mico Chan - AESY">
+                </div>
+                <div class="member-name">Mico Chan</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="AESY" placeholder="AESY">
+                </div>
+                <div class="member-role">NAGPAPAHINGA</div>
+            </div>
+            
+            <!-- Philip -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/nexus.jpg" alt="Philip Kayle Pasatiempo - NEXUS">
+                </div>
+                <div class="member-name">Philip Kayle Pasatiempo</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="NEXUS" placeholder="NEXUS">
+                </div>
+                <div class="member-role">SPINNER/SNIPER</div>
+            </div>
+            
+            <!-- Kevin -->
+            <div class="member-card">
+                <div class="member-photo">
+                    <img src="images/khenn.jpg" alt="Kevin Bascuguin - KHENN">
+                </div>
+                <div class="member-name">Kevin Bascuguin</div>
+                <div class="aka-wrapper">
+                    <span class="aka-prefix">AKA</span>
+                    <input type="text" class="aka-editable" value="KHENN" placeholder="KHENN">
+                </div>
+                <div class="member-role">TAGA AYA MAGLARO PERO LAGING WALA</div>
+            </div>
+        </div>
+
+        <!-- JOIN SECTION -->
+        <div class="join-request-section">
+            <h2>
+                <i class="fas fa-hand-peace"></i> 
+                REQUEST TO JOIN 
+                <i class="fas fa-hand-peace"></i>
+            </h2>
+            <div class="qr-code-frame">
+                <img src="2.png" alt="QR code" class="qr-code-img" onerror="this.src='https://via.placeholder.com/300/f1ebdd/9b8c66?text=QR+2.JPG';">
+            </div>
+            <div style="color: #7b6a48; margin: 0.3rem 0;">scan to apply · or tap below</div>
+            <button class="btn-join" id="joinNowBtn">
+                <i class="fas fa-dragon"></i> JOIN NOW <i class="fas fa-dragon"></i>
+            </button>
+        </div>
+
+        <!-- footer -->
+        <div class="clan-footer">
+            <div><i class="fas fa-fish"></i> LABAN GALUNGGONG! IPUSH YAN JUSKUPUNAMAN</div>
+            
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('joinNowBtn').addEventListener('click', function() {
+        window.location.href = 'join.html';
+    });
+    </script>
+</body>
+</html>

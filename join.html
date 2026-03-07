@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Galunggong · join prank</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 30% 20%, #1e2f1a, #0b1a0b);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', 'Comic Sans MS', cursive, system-ui, sans-serif;
+            padding: 1.5rem;
+        }
+
+        .prank-card {
+            max-width: 700px;
+            width: 100%;
+            background: #1d321be6;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 4px solid #caa251;
+            border-radius: 100px 100px 60px 60px;
+            box-shadow: 0 30px 0 #3d6027, 0 40px 35px #000000d9, 0 0 0 3px #feda7a inset;
+            padding: 2.5rem 1.8rem 3rem;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #fbdd7e;
+            text-transform: uppercase;
+            text-shadow: 0 5px 0 #4a6a28, 0 8px 0 #203317, 0 0 30px #fde087;
+            letter-spacing: 4px;
+            margin-bottom: 0.25rem;
+            word-break: break-word;
+        }
+
+        .sub-header {
+            background: #263f1eb3;
+            color: #ebc979;
+            font-size: 1.5rem;
+            padding: 0.4rem 1.8rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 0.5rem auto 1.8rem;
+            border: 2px solid #b79148;
+            font-weight: 600;
+            box-shadow: 0 0 12px #a48738;
+        }
+
+        .prank-image-container {
+            margin: 1.8rem 0 2rem;
+        }
+
+        .prank-image {
+            max-width: 85%;
+            width: auto;
+            border: 12px solid #a77d37;
+            border-radius: 70px;
+            background: #fcf0bf;  /* warm background in case image missing */
+            box-shadow: 0 0 0 5px #fbdead, 0 30px 35px #000000cc;
+            transition: transform 0.3s ease;
+        }
+
+        .prank-image:hover {
+            transform: scale(1.02) rotate(0.5deg);
+        }
+
+        .prank-message {
+            background: #2b4625;
+            border-radius: 50px;
+            padding: 1.2rem 2rem;
+            border: 4px solid #dbaa4b;
+            margin: 2.2rem 0 1.8rem;
+            transform: rotate(-0.7deg);
+            box-shadow: 0 12px 0 #3f5f2b;
+        }
+
+        .prank-message h2 {
+            font-size: 2.6rem;
+            color: #fef1b5;
+            text-shadow: 3px 3px 0 #415f26;
+            letter-spacing: 2px;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .prank-message p {
+            font-size: 1.4rem;
+            color: #cfe2b0;
+            font-style: italic;
+        }
+
+        .small-gag {
+            background: #182e13;
+            color: #ffe68f;
+            font-size: 1.3rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 40px;
+            display: inline-block;
+            border: 2px dashed #ccaa5e;
+            margin: 1.2rem 0 2rem;
+            font-weight: 500;
+        }
+
+        .close-button {
+            background: #eabd58;
+            border: none;
+            color: #1f3b18;
+            font-size: 2rem;
+            font-weight: 900;
+            padding: 0.8rem 3rem;
+            border-radius: 60px;
+            box-shadow: 0 8px 0 #836224, 0 10px 20px black;
+            cursor: pointer;
+            transition: 0.03s linear;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            border: 3px solid #fffacd;
+            margin-top: 1rem;
+            text-decoration: none;
+            font-family: inherit;
+        }
+
+        .close-button:active {
+            transform: translateY(6px);
+            box-shadow: 0 2px 0 #836224, 0 10px 20px black;
+        }
+
+        .close-button i {
+            font-size: 2rem;
+            color: #2c471f;
+        }
+
+        /* mobile tightness */
+        @media (max-width: 500px) {
+            .prank-card {
+                padding: 1.8rem 1rem 2.5rem;
+                border-radius: 60px 60px 40px 40px;
+            }
+            h1 {
+                font-size: 2.4rem;
+            }
+            .sub-header {
+                font-size: 1.2rem;
+            }
+            .prank-message h2 {
+                font-size: 2rem;
+            }
+            .prank-message p {
+                font-size: 1.1rem;
+            }
+            .close-button {
+                font-size: 1.6rem;
+                padding: 0.6rem 2rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .prank-image {
+                border-width: 8px;
+            }
+        }
+
+        /* optional fish icon wiggle */
+        @keyframes wiggle {
+            0% { transform: rotate(0deg); }
+            80% { transform: rotate(0deg); }
+            85% { transform: rotate(4deg); }
+            95% { transform: rotate(-4deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .fish-emoji {
+            display: inline-block;
+            animation: wiggle 2.5s infinite;
+            font-size: 1.2em;
+        }
+    </style>
+    <!-- Font Awesome for optional icons (but we can also use emoji) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="prank-card">
+        <h1>🐟GALUNGGONG🐟</h1>
+        <div class="sub-header">
+            <span class="fish-emoji">🎣</span> recruitment center <span class="fish-emoji">🐡</span>
+        </div>
+
+        <!-- 1.PNG prank image (the joke) -->
+        <div class="prank-image-container">
+            <img src="1.PNG" alt="1.PNG - the secret prank" class="prank-image" onerror="this.src='https://via.placeholder.com/450x350/2f542f/f5d584?text=1.PNG+🐟+PRANK'; this.alt='placeholder prank image'">
+        </div>
+
+        <!-- Big prank reveal -->
+        <div class="prank-message">
+            <h2><i class="fas fa-skull"></i> JUSKUPUNAMAN! <i class="fas fa-skull"></i></h2>
+            <p>you've been <strong style="color:#fff0b5;font-size:1.5em;">galunggong'd</strong></p>
+        </div>
+
+        <div class="small-gag">
+            <i class="fas fa-fish"></i> send gcash 10k. to join. 09664028388 <i class="fas fa-fish"></i>
+        </div>
+
+        <!-- big close / go back button - acts as close (but can't force close, so suggest) -->
+        <button class="close-button" id="closePrankBtn">
+            <i class="fas fa-times-circle"></i> CLOSE TAB <i class="fas fa-arrow-left"></i>
+        </button>
+        
+    </div>
+
+    <script>
+    (function() {
+        // Make the close button redirect to index.html
+        const closeBtn = document.getElementById('closePrankBtn');
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                window.location.href = 'index.html';
+            });
+        }
+
+        // optional: if user clicks anywhere on image, do a fun console log
+        const prankImg = document.querySelector('.prank-image');
+        if (prankImg) {
+            prankImg.addEventListener('click', () => {
+                console.log('🐟 GALUNGGONG PRANK 1.PNG');
+            });
+        }
+    })();
+</script>
+</body>
+</html>
