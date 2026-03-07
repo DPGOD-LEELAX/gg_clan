@@ -61,6 +61,8 @@
 
         .prank-image-container {
             margin: 1.8rem 0 2rem;
+            display: flex;
+            justify-content: center;
         }
 
         .prank-image {
@@ -68,9 +70,11 @@
             width: auto;
             border: 12px solid #a77d37;
             border-radius: 70px;
-            background: #fcf0bf;  /* warm background in case image missing */
+            background: #fcf0bf;
             box-shadow: 0 0 0 5px #fbdead, 0 30px 35px #000000cc;
             transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
         }
 
         .prank-image:hover {
@@ -177,7 +181,6 @@
             }
         }
 
-        /* optional fish icon wiggle */
         @keyframes wiggle {
             0% { transform: rotate(0deg); }
             80% { transform: rotate(0deg); }
@@ -191,7 +194,6 @@
             font-size: 1.2em;
         }
     </style>
-    <!-- Font Awesome for optional icons (but we can also use emoji) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -201,9 +203,10 @@
             <span class="fish-emoji">🎣</span> recruitment center <span class="fish-emoji">🐡</span>
         </div>
 
-        <!-- 1.PNG prank image (the joke) -->
+        <!-- 1.PNG prank image with centered fallback -->
         <div class="prank-image-container">
-            <img src="1.PNG" alt="1.PNG - the secret prank" class="prank-image" onerror="this.src='https://via.placeholder.com/450x350/2f542f/f5d584?text=1.PNG+🐟+PRANK'; this.alt='placeholder prank image'">
+            <img src="1.PNG" alt="1.PNG - the secret prank" class="prank-image" 
+                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\' viewBox=\'0 0 400 300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%232f542f\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-family=\'Arial\' font-size=\'24\' fill=\'%23f5d584\' text-anchor=\'middle\' dy=\'.3em\'%3E1.PNG 🐟 PRANK%3C/text%3E%3C/svg%3E';">
         </div>
 
         <!-- Big prank reveal -->
@@ -213,34 +216,34 @@
         </div>
 
         <div class="small-gag">
-            <i class="fas fa-fish"></i> send gcash 10k. to join. 09664028388 <i class="fas fa-fish"></i>
+            <i class="fas fa-fish"></i> send gcash 10k to join: 09664028388 <i class="fas fa-fish"></i>
         </div>
 
-        <!-- big close / go back button - acts as close (but can't force close, so suggest) -->
         <button class="close-button" id="closePrankBtn">
             <i class="fas fa-times-circle"></i> CLOSE TAB <i class="fas fa-arrow-left"></i>
         </button>
         
+        <p style="color: #b8cf9c; margin-top: 1.5rem; font-size: 0.9rem;">
+            (just a prank · back to main page)
+        </p>
     </div>
 
     <script>
-    (function() {
-        // Make the close button redirect to index.html
-        const closeBtn = document.getElementById('closePrankBtn');
-        if (closeBtn) {
-            closeBtn.addEventListener('click', function() {
-                window.location.href = 'index.html';
-            });
-        }
+        (function() {
+            const closeBtn = document.getElementById('closePrankBtn');
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function() {
+                    window.location.href = 'index.html';
+                });
+            }
 
-        // optional: if user clicks anywhere on image, do a fun console log
-        const prankImg = document.querySelector('.prank-image');
-        if (prankImg) {
-            prankImg.addEventListener('click', () => {
-                console.log('🐟 GALUNGGONG PRANK 1.PNG');
-            });
-        }
-    })();
-</script>
+            const prankImg = document.querySelector('.prank-image');
+            if (prankImg) {
+                prankImg.addEventListener('click', () => {
+                    console.log('🐟 GALUNGGONG PRANK 1.PNG');
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
