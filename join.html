@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Galunggong · join prank — mobile slick</title>
+    <title>Galunggong · Join Application — Fill up form</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            /* better touch-friendly buttons */
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -23,18 +22,17 @@
             padding: 1rem;
         }
 
-        /* main card — truly fluid + safe borders */
-        .prank-card {
+        /* main card */
+        .join-card {
             max-width: 700px;
             width: 100%;
-            background: rgba(29, 50, 27, 0.92);
+            background: rgba(29, 50, 27, 0.94);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 4px solid #caa251;
             border-radius: clamp(40px, 12vw, 100px) clamp(40px, 12vw, 100px) clamp(30px, 8vw, 60px) clamp(30px, 8vw, 60px);
             box-shadow: 0 20px 0 #3d6027, 0 30px 30px rgba(0, 0, 0, 0.85), 0 0 0 3px #feda7a inset;
             padding: clamp(1rem, 6vw, 2.5rem) clamp(1rem, 5vw, 1.8rem) clamp(1.8rem, 8vw, 3rem);
-            text-align: center;
             transition: all 0.2s ease;
         }
 
@@ -46,22 +44,14 @@
             text-shadow: 0 4px 0 #4a6a28, 0 7px 0 #203317, 0 0 25px #fde087;
             letter-spacing: 2px;
             line-height: 1.2;
-            word-break: break-word;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.2rem;
-        }
-
-        /* fish icons scale well */
-        h1 span {
-            display: inline-block;
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
 
         .sub-header {
             background: rgba(38, 63, 30, 0.8);
             color: #ebc979;
-            font-size: clamp(1rem, 5vw, 1.6rem);
+            font-size: clamp(1rem, 5vw, 1.4rem);
             padding: 0.4rem 1.2rem;
             border-radius: 60px;
             display: inline-flex;
@@ -72,8 +62,127 @@
             margin: 0.5rem auto 1.5rem;
             border: 2px solid #b79148;
             font-weight: 600;
-            box-shadow: 0 0 10px #a48738;
             width: auto;
+        }
+
+        /* form styling */
+        .application-form {
+            margin: 1.5rem 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            color: #fef1b5;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            font-size: clamp(0.85rem, 4vw, 1rem);
+            letter-spacing: 0.5px;
+        }
+
+        .form-group label .required {
+            color: #ffaa66;
+            margin-left: 4px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            border-radius: 50px;
+            border: 2px solid #b79148;
+            background: #fffef7;
+            font-family: inherit;
+            font-size: clamp(0.9rem, 4vw, 1rem);
+            outline: none;
+            transition: all 0.2s;
+            color: #2d3e24;
+            font-weight: 500;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #fbdd7e;
+            box-shadow: 0 0 0 3px rgba(251, 221, 126, 0.3);
+            background: white;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background: #eabd58;
+            border: none;
+            color: #1f3b18;
+            font-size: clamp(1.2rem, 5vw, 1.6rem);
+            font-weight: 900;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            box-shadow: 0 8px 0 #836224, 0 10px 20px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: 0.05s linear;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            border: 3px solid #fffacd;
+            width: 100%;
+            font-family: inherit;
+            margin-top: 0.8rem;
+        }
+
+        .submit-btn:active {
+            transform: translateY(5px);
+            box-shadow: 0 2px 0 #836224, 0 8px 18px black;
+        }
+
+        /* error message */
+        .error-msg {
+            background: rgba(180, 60, 40, 0.95);
+            color: #ffe3b3;
+            padding: 0.7rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-top: 0.8rem;
+            text-align: center;
+            display: none;
+            backdrop-filter: blur(4px);
+            font-weight: 500;
+        }
+
+        /* prank reveal section (hidden initially) - MAIL ANIMATION */
+        .prank-reveal {
+            display: none;
+            margin-top: 0.5rem;
+        }
+
+        /* EMAIL / MAIL IN ANIMATION */
+        @keyframes mailSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.92);
+                filter: blur(6px);
+            }
+            40% {
+                opacity: 0.8;
+                transform: translateY(-5px) scale(1.01);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .mail-animation {
+            animation: mailSlideIn 0.65s cubic-bezier(0.2, 0.9, 0.3, 1.2) forwards !important;
         }
 
         .prank-image-container {
@@ -84,7 +193,6 @@
             width: 100%;
         }
 
-        /* responsive image — never overflow, scales beautifully */
         .prank-image {
             max-width: 95%;
             width: auto;
@@ -93,17 +201,11 @@
             border-radius: clamp(30px, 8vw, 70px);
             background: #fcf0bf;
             box-shadow: 0 0 0 4px #fbdead, 0 18px 28px rgba(0, 0, 0, 0.7);
-            transition: transform 0.2s ease;
             display: block;
             margin: 0 auto;
             object-fit: contain;
         }
 
-        .prank-image:active {
-            transform: scale(0.99);
-        }
-
-        /* responsive message block */
         .prank-message {
             background: #2b4625;
             border-radius: clamp(30px, 8vw, 50px);
@@ -112,6 +214,7 @@
             margin: 1.5rem 0 1.5rem;
             transform: rotate(-0.4deg);
             box-shadow: 0 10px 0 #3f5f2b;
+            text-align: center;
         }
 
         .prank-message h2 {
@@ -139,6 +242,7 @@
             font-size: 1.2em;
             display: inline-block;
             letter-spacing: 1px;
+            color: #fff0b5;
         }
 
         .small-gag {
@@ -147,43 +251,41 @@
             font-size: clamp(1rem, 4vw, 1.4rem);
             padding: 0.7rem 1rem;
             border-radius: 50px;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 0.6rem;
             border: 2px dashed #ccaa5e;
             margin: 0.5rem 0 1.8rem;
             font-weight: 600;
-            width: auto;
-            max-width: 100%;
+            width: 100%;
             word-break: break-word;
+            text-align: center;
         }
 
-        /* big tap-friendly button */
         .close-button {
             background: #eabd58;
             border: none;
             color: #1f3b18;
-            font-size: clamp(1.3rem, 5vw, 2rem);
+            font-size: clamp(1.2rem, 5vw, 1.8rem);
             font-weight: 900;
-            padding: 0.8rem 1.8rem;
+            padding: 0.7rem 1.5rem;
             border-radius: 60px;
             box-shadow: 0 8px 0 #836224, 0 10px 20px rgba(0, 0, 0, 0.5);
             cursor: pointer;
             transition: 0.05s linear;
             text-transform: uppercase;
             letter-spacing: 2px;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
             border: 3px solid #fffacd;
-            margin-top: 0.5rem;
+            margin: 0.5rem auto 0;
             font-family: inherit;
             width: auto;
             min-width: 180px;
-            background-clip: padding-box;
         }
 
         .close-button:active {
@@ -191,22 +293,24 @@
             box-shadow: 0 2px 0 #836224, 0 8px 18px black;
         }
 
-        .close-button i {
-            font-size: 1.2em;
-            color: #2c471f;
-        }
-
         .footer-note {
             color: #b8cf9c;
             margin-top: 1.5rem;
             font-size: clamp(0.7rem, 3.5vw, 0.9rem);
             background: rgba(0,0,0,0.2);
-            display: inline-block;
-            padding: 0.3rem 1rem;
+            display: block;
+            padding: 0.5rem 1rem;
             border-radius: 60px;
+            text-align: center;
+            width: 100%;
         }
 
-        /* wiggle animation stays but reduced motion if user prefers */
+        .fish-emoji {
+            display: inline-block;
+            animation: wiggle 2.5s infinite;
+            font-size: 1.1em;
+        }
+
         @keyframes wiggle {
             0% { transform: rotate(0deg); }
             80% { transform: rotate(0deg); }
@@ -214,181 +318,286 @@
             95% { transform: rotate(-4deg); }
             100% { transform: rotate(0deg); }
         }
-        .fish-emoji {
-            display: inline-block;
-            animation: wiggle 2.5s infinite;
-            font-size: 1.1em;
+
+        /* smooth hide */
+        .fade-out-form {
+            opacity: 0;
+            transform: scale(0.96);
+            transition: opacity 0.25s ease, transform 0.3s ease;
         }
 
-        /* phone-specific refinements: no horizontal overflow, improve tap targets */
+        /* center all text in prank reveal */
+        .prank-reveal {
+            text-align: center;
+        }
+
         @media (max-width: 600px) {
-            body {
-                padding: 0.8rem;
-                align-items: center;
-            }
-            .prank-card {
-                padding: 1.2rem 1rem 2rem;
-                box-shadow: 0 15px 0 #3d6027, 0 25px 25px black, 0 0 0 2px #feda7a inset;
-            }
-            .sub-header {
-                gap: 0.4rem;
-            }
-            .prank-image {
-                max-width: 96%;
-            }
-            .small-gag i {
-                font-size: 0.9rem;
-            }
-            .close-button {
-                min-width: 150px;
-                padding: 0.7rem 1.2rem;
-            }
+            body { padding: 0.8rem; }
+            .join-card { padding: 1.2rem 1rem 2rem; }
+            .form-row { grid-template-columns: 1fr; gap: 0.8rem; }
         }
 
-        /* extra small devices (fold / small) */
         @media (max-width: 420px) {
-            .prank-card {
-                border-radius: 35px 35px 30px 30px;
-                padding: 1rem 0.9rem 1.8rem;
-            }
-            h1 {
-                letter-spacing: 1px;
-            }
-            .prank-message h2 {
-                gap: 0.3rem;
-            }
-            .close-button i {
-                font-size: 1.1rem;
-            }
-            .small-gag {
-                font-size: 0.85rem;
-                padding: 0.5rem 0.8rem;
-                gap: 0.3rem;
-            }
-        }
-
-        /* landscape mode - keep card centered and usable */
-        @media (max-height: 500px) and (orientation: landscape) {
-            body {
-                padding: 0.5rem;
-            }
-            .prank-card {
-                padding: 0.8rem 1rem 1.2rem;
-            }
-            .prank-image {
-                max-height: 45vh;
-                width: auto;
-            }
-            .prank-message {
-                margin: 0.8rem 0;
-                padding: 0.5rem 1rem;
-            }
-            .small-gag {
-                margin: 0.2rem 0 0.8rem;
-            }
-        }
-
-        /* no ugly overflow from long words */
-        .small-gag, .prank-message p, .sub-header {
-            word-break: break-word;
-        }
-
-        /* better interactive hover/focus only for non-touch devices */
-        @media (hover: hover) {
-            .prank-image:hover {
-                transform: scale(1.01) rotate(0.5deg);
-            }
-            .close-button:hover {
-                background: #f5cb6e;
-                transform: scale(0.98);
-                box-shadow: 0 5px 0 #836224;
-            }
+            .join-card { padding: 1rem 0.9rem 1.8rem; }
+            .submit-btn { font-size: 1.2rem; padding: 0.6rem 1rem; }
+            .close-button { min-width: 150px; font-size: 1rem; padding: 0.6rem 1rem; }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="prank-card">
+    <div class="join-card" id="joinCard">
         <h1>
             <span>🐟</span><span>GALUNGGONG</span><span>🐟</span>
         </h1>
-        <div class="sub-header">
-            <span class="fish-emoji">🎣</span> recruitment center <span class="fish-emoji">🐡</span>
+        <div style="text-align: center;">
+            <div class="sub-header">
+                <span class="fish-emoji">🎣</span> recruitment form <span class="fish-emoji">🐡</span>
+            </div>
         </div>
 
-        <!-- 1.PNG prank image with responsive fallback & graceful handling -->
-        <div class="prank-image-container">
-            <img src="1.png" alt="1.PNG - the secret prank" class="prank-image" 
-                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'360\' viewBox=\'0 0 500 360\'%3E%3Crect width=\'500\' height=\'360\' fill=\'%232f542f\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' font-family=\'system-ui, sans-serif\' font-size=\'28\' fill=\'%23f5d584\' text-anchor=\'middle\' dy=\'.3em\' font-weight=\'bold\'%3E🐟 1.PNG PRANK 🐟%3C/text%3E%3Ctext x=\'50%25\' y=\'65%25\' font-size=\'20\' fill=\'%23efc886\' text-anchor=\'middle\'%3EGalunggong™ Edition%3C/text%3E%3C/svg%3E';">
+        <!-- APPLICATION FORM SECTION (visible first) -->
+        <div id="formSection">
+            <div class="application-form">
+                <div class="form-group">
+                    <label>PUBGM ID <span class="required">*</span></label>
+                    <input type="text" id="pubgmId" placeholder="e.g., 1234567890" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>IGN (In-Game Name) <span class="required">*</span></label>
+                    <input type="text" id="ign" placeholder="Your game username" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Facebook Name <span class="required">*</span></label>
+                    <input type="text" id="fbName" placeholder="Full name or FB username" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>TikTok Account <span class="required">*</span></label>
+                    <input type="text" id="tiktok" placeholder="@yourusername" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" placeholder="you@example.com" autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label>Role (Optional)</label>
+                    <select id="role">
+                        <option value="">-- Select Role (optional) --</option>
+                        <option value="Assaulter">Assaulter</option>
+                        <option value="Sniper">Sniper</option>
+                        <option value="Supporter">Supporter</option>
+                        <option value="IGL">IGL (In-Game Leader)</option>
+                        <option value="Flex">Flex</option>
+                        <option value="Entry Fragger">Entry Fragger</option>
+                    </select>
+                </div>
+
+                <button class="submit-btn" id="submitFormBtn">
+                    <i class="fas fa-paper-plane"></i> SUBMIT APPLICATION <i class="fas fa-fish"></i>
+                </button>
+                <div class="error-msg" id="errorMsg">
+                    <i class="fas fa-exclamation-triangle"></i> Please fill out all required fields!
+                </div>
+            </div>
         </div>
 
-        <!-- Big prank reveal : fully responsive text -->
-        <div class="prank-message">
-            <h2><i class="fas fa-skull"></i> JUSKUPUNAMAN! <i class="fas fa-skull"></i></h2>
-            <p>you've been <strong style="color:#fff0b5; font-size:clamp(1.2rem, 5vw, 1.6rem);">galunggong'd</strong> </p>
-        </div>
+        <!-- PRANK REVEAL SECTION (hidden until valid submit) with MAIL ANIMATION & ALL CENTERED -->
+        <div id="prankReveal" class="prank-reveal">
+            <div class="prank-image-container">
+                <img src="1.png" alt="1.PNG - the secret prank" class="prank-image" 
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'360\' viewBox=\'0 0 500 360\'%3E%3Crect width=\'500\' height=\'360\' fill=\'%232f542f\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' font-family=\'system-ui, sans-serif\' font-size=\'28\' fill=\'%23f5d584\' text-anchor=\'middle\' dy=\'.3em\' font-weight=\'bold\'%3E🐟 1.PNG PRANK 🐟%3C/text%3E%3Ctext x=\'50%25\' y=\'65%25\' font-size=\'20\' fill=\'%23efc886\' text-anchor=\'middle\'%3EGalunggong™ Edition%3C/text%3E%3C/svg%3E';">
+            </div>
 
-        <div class="small-gag">
-            <i class="fas fa-fish"></i> send gcash 10k to join XD: 09664028388 <i class="fas fa-fish"></i>
-           
-        </div>
+            <div class="prank-message">
+                <h2><i class="fas fa-skull"></i> JUSKUPUNAMAN! <i class="fas fa-skull"></i></h2>
+                <p>you've been <strong style="font-size:clamp(1.2rem, 5vw, 1.6rem);">galunggong'd</strong> 🐟🎣</p>
+            </div>
 
-        <button class="close-button" id="closePrankBtn">
-            <i class="fas fa-times-circle"></i> CLOSE TAB <i class="fas fa-arrow-left"></i>
-        </button>
-        
-        <div class="footer-note">
-            <i class="fas fa-laugh-beam"></i> (prank lang to sinayang ko lang oras mo. -LEELAX) <i class="fas fa-hand-peace"></i>
+            <!-- CENTERED GCASH MESSAGE -->
+            <div class="small-gag">
+                <i class="fas fa-fish"></i> send gcash 10k to join XD: 09664028388 <i class="fas fa-fish"></i>
+            </div>
+
+            <!-- CENTERED CLOSE BUTTON -->
+            <button class="close-button" id="closePrankBtn">
+                <i class="fas fa-times-circle"></i> CLOSE TAB <i class="fas fa-arrow-left"></i>
+            </button>
+            
+            <!-- CENTERED FOOTER NOTE -->
+            <div class="footer-note">
+                <i class="fas fa-laugh-beam"></i> (prank lang to sinayang ko lang oras mo. -LEELAX)  <i class="fas fa-hand-peace"></i>
+                
+            </div>
         </div>
     </div>
 
     <script>
         (function() {
+            // DOM elements
+            const formSection = document.getElementById('formSection');
+            const prankReveal = document.getElementById('prankReveal');
+            const submitBtn = document.getElementById('submitFormBtn');
+            const errorMsgDiv = document.getElementById('errorMsg');
+            
+            // Input fields
+            const pubgmId = document.getElementById('pubgmId');
+            const ign = document.getElementById('ign');
+            const fbName = document.getElementById('fbName');
+            const tiktok = document.getElementById('tiktok');
+            const email = document.getElementById('email');
+            
+            // helper: show error
+            function showError(message) {
+                errorMsgDiv.style.display = 'block';
+                errorMsgDiv.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+                // auto hide after 4 seconds
+                setTimeout(() => {
+                    if (errorMsgDiv.style.display === 'block') {
+                        errorMsgDiv.style.opacity = '0';
+                        setTimeout(() => {
+                            errorMsgDiv.style.display = 'none';
+                            errorMsgDiv.style.opacity = '1';
+                        }, 300);
+                    }
+                }, 3800);
+            }
+            
+            function hideError() {
+                errorMsgDiv.style.display = 'none';
+            }
+            
+            // validation: all required (except role)
+            function validateForm() {
+                const pubgmVal = pubgmId.value.trim();
+                const ignVal = ign.value.trim();
+                const fbVal = fbName.value.trim();
+                const tiktokVal = tiktok.value.trim();
+                const emailVal = email.value.trim();
+                
+                if (!pubgmVal) {
+                    showError('❌ PUBGM ID is required!');
+                    pubgmId.focus();
+                    return false;
+                }
+                if (!ignVal) {
+                    showError('❌ IGN (In-Game Name) is required!');
+                    ign.focus();
+                    return false;
+                }
+                if (!fbVal) {
+                    showError('❌ Facebook Name is required!');
+                    fbName.focus();
+                    return false;
+                }
+                if (!tiktokVal) {
+                    showError('❌ TikTok Account is required!');
+                    tiktok.focus();
+                    return false;
+                }
+                if (!emailVal) {
+                    showError('❌ Email Address is required!');
+                    email.focus();
+                    return false;
+                }
+                // simple email pattern
+                const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+                if (!emailPattern.test(emailVal)) {
+                    showError('⚠️ Please enter a valid email address (e.g., name@domain.com)');
+                    email.focus();
+                    return false;
+                }
+                return true;
+            }
+            
+            // on submit: validate, hide form, show prank with mail animation
+            function handleSubmit(e) {
+                e.preventDefault();
+                hideError();
+                
+                if (!validateForm()) {
+                    return;
+                }
+                
+                // Optional: log to console for fun
+                console.log('🎣 GALUNGGONG APPLICATION SUBMITTED (prank incoming):', {
+                    pubgmId: pubgmId.value.trim(),
+                    ign: ign.value.trim(),
+                    fbName: fbName.value.trim(),
+                    tiktok: tiktok.value.trim(),
+                    email: email.value.trim(),
+                    role: document.getElementById('role').value || 'not specified'
+                });
+                
+                // Apply fade-out class to form section
+                formSection.classList.add('fade-out-form');
+                
+                // after transition, hide form and show prank with mail-like animation
+                setTimeout(() => {
+                    formSection.style.display = 'none';
+                    prankReveal.style.display = 'block';
+                    
+                    // Add mail / letter animation class
+                    prankReveal.classList.add('mail-animation');
+                    
+                    // extra micro bounce for image (just for fun)
+                    const prankImgDiv = prankReveal.querySelector('.prank-image-container');
+                    if (prankImgDiv) {
+                        prankImgDiv.style.animation = 'none';
+                        prankImgDiv.offsetHeight; // reflow
+                        prankImgDiv.style.animation = 'mailSlideIn 0.55s ease';
+                    }
+                    
+                    // Remove animation class after it finishes to keep smooth
+                    setTimeout(() => {
+                        prankReveal.classList.remove('mail-animation');
+                    }, 700);
+                    
+                }, 280);
+            }
+            
+            // Event listener
+            submitBtn.addEventListener('click', handleSubmit);
+            
+            // Press Enter on any input triggers submit (user friendly)
+            const inputs = [pubgmId, ign, fbName, tiktok, email];
+            inputs.forEach(input => {
+                input.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        handleSubmit(event);
+                    }
+                });
+            });
+            
+            // Close button redirects to index.html (main page)
             const closeBtn = document.getElementById('closePrankBtn');
             if (closeBtn) {
                 closeBtn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    // direct navigation to index.html (main page)
                     window.location.href = 'index.html';
                 });
             }
-
-            // Optional: make image double-tap friendly and log prank effect, also prevents image dragging
-            const prankImg = document.querySelector('.prank-image');
+            
+            // Preload 1.png image for faster reveal
+            const preloadImg = new Image();
+            preloadImg.src = '1.png';
+            
+            // Ensure image fallback inside prank reveal
+            const prankImg = document.querySelector('#prankReveal .prank-image');
             if (prankImg) {
-                prankImg.addEventListener('dragstart', (e) => e.preventDefault());
-                prankImg.addEventListener('click', () => {
-                    console.log('🐟 GALUNGGONG PRANK 1.PNG — nice one!');
-                    // tiny subtle vibe: just for laughs, but no intrusive alert
+                prankImg.addEventListener('error', function() {
+                    if (!this.dataset.fallbackFixed) {
+                        this.dataset.fallbackFixed = 'true';
+                        this.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'500\' height=\'360\' viewBox=\'0 0 500 360\'%3E%3Crect width=\'500\' height=\'360\' fill=\'%232f542f\'/%3E%3Ctext x=\'50%25\' y=\'45%25\' font-family=\'system-ui, sans-serif\' font-size=\'28\' fill=\'%23f5d584\' text-anchor=\'middle\' dy=\'.3em\' font-weight=\'bold\'%3E🐟 1.PNG PRANK 🐟%3C/text%3E%3Ctext x=\'50%25\' y=\'65%25\' font-size=\'20\' fill=\'%23efc886\' text-anchor=\'middle\'%3EGalunggong™ Edition%3C/text%3E%3C/svg%3E';
+                    }
                 });
             }
-
-            // Extra: ensure any accidental long press doesn't break layout
-            const allInteractive = document.querySelectorAll('button, .prank-image');
-            allInteractive.forEach(el => {
-                el.addEventListener('touchstart', function() {
-                    // just trigger passive, improves responsiveness
-                }, { passive: true });
+            
+            // additional small fix: disable drag on images to keep clean
+            const allImages = document.querySelectorAll('img');
+            allImages.forEach(img => {
+                img.addEventListener('dragstart', (e) => e.preventDefault());
             });
-
-            // ensure that on extremely small devices, the card is fully accessible
-            const setResponsivePadding = () => {
-                const card = document.querySelector('.prank-card');
-                if (card && window.innerWidth < 400) {
-                    card.style.paddingLeft = '0.8rem';
-                    card.style.paddingRight = '0.8rem';
-                } else if (card) {
-                    card.style.paddingLeft = '';
-                    card.style.paddingRight = '';
-                }
-            };
-            window.addEventListener('resize', () => { setResponsivePadding(); });
-            setResponsivePadding();
-
-            // small meta fix for ios dynamic bar
-            if ('ontouchstart' in window) {
-                document.body.style.cursor = 'default';
-            }
         })();
     </script>
 </body>
