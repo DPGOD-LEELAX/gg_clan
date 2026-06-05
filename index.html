@@ -2,12 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <!-- SOCIAL MEDIA PREVIEW (FIX for Messenger, Facebook, etc.) -->
+    <meta property="og:title" content="Galunggong Clan · PUBGM Pro Portfolio">
+    <meta property="og:description" content="Elite squad GALUNGGONG — meet the legends, request to join the craziest PUBGM family! Juskupunaman!">
+    <meta property="og:image" content="images/gglogo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Galunggong Clan · PUBGM Pro">
+    <meta name="twitter:description" content="Join the legendary Galunggong squad! Scan QR or click to apply. 🐟">
+    <meta name="twitter:image" content="images/gglogo.jpg">
+    
     <title>Galunggong Clan · PUBGM Pro Portfolio</title>
-    <!-- Font Awesome 6 (free) -->
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts for clean typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,9 +29,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f8f6f2;
-            background-image: radial-gradient(circle at 10% 20%, rgba(230, 215, 180, 0.2) 0%, transparent 30%),
-                              radial-gradient(circle at 90% 70%, rgba(200, 180, 140, 0.15) 0%, transparent 40%);
+            background: #f0ebe0;
+            background-image: radial-gradient(circle at 10% 20%, rgba(200, 180, 140, 0.1) 0%, transparent 40%);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -28,55 +39,112 @@
             color: #2e3a2a;
         }
 
-        /* main container */
+        /* main container - clean card */
         .clan-portfolio {
             max-width: 1280px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: clamp(32px, 5vw, 56px);
-            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1), 0 4px 18px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(220, 200, 160, 0.5) inset;
-            padding: clamp(1.5rem, 4vw, 2.8rem);
+            background: #ffffff;
+            border-radius: clamp(24px, 4vw, 48px);
+            box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+            padding: 0;
         }
 
-        /* header */
-        .clan-header {
+        /* ========== CLEAN COVER PHOTO (no overlay text on image) ========== */
+        .cover-section {
+            width: 100%;
+            background: #1e2d1a;
+        }
+        .cover-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
+            max-height: 380px;
+            background: #3b5a2b;
+        }
+        
+        /* cover info below image — FULLY CENTERED */
+        .cover-info {
+            padding: 1.5rem 2rem 1rem 2rem;
+            background: white;
+            border-bottom: 1px solid #eee6d8;
             text-align: center;
-            margin-bottom: clamp(2rem, 5vw, 3.5rem);
         }
-
-        .clan-header h1 {
-            font-size: clamp(2.5rem, 8vw, 4.2rem);
+        .clan-title-large {
+            font-size: clamp(1.8rem, 6vw, 3rem);
             font-weight: 800;
-            letter-spacing: -1px;
             background: linear-gradient(135deg, #5b7e48, #8b6e4b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            letter-spacing: -0.5px;
             margin-bottom: 0.5rem;
-            line-height: 1.1;
-            text-shadow: 2px 2px 20px rgba(140, 120, 70, 0.15);
-            word-break: break-word;
-        }
-
-        .clan-tagline {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.8rem;
-            font-weight: 400;
-            font-size: clamp(0.9rem, 3vw, 1.2rem);
-            color: #7a6b50;
-            background: #ede9ddb0;
-            padding: 0.6rem 1.5rem;
-            border-radius: 80px;
-            width: fit-content;
-            margin: 0.5rem auto 0;
-            border: 1px solid #dfd2b6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            letter-spacing: 0.3px;
             flex-wrap: wrap;
+        }
+        .clan-title-large i {
+            background: none;
+            -webkit-text-fill-color: #c2a156;
+            font-size: 1.1em;
+        }
+        .clan-motto {
+            color: #7a6b50;
+            font-size: clamp(1rem, 3.5vw, 1.2rem);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.25rem;
+        }
+        .clan-badge-mini {
+            background: #f3efdf;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #6b5a3e;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* profile header - also centered but flexible */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 1rem 2rem 1.5rem 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0e5d4;
+        }
+        .logo-name {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .small-logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fbdead;
+            background: #fff3df;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .clan-tagline {
+            background: #f8f3e8;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #7c6a48;
         }
 
         /* member grid */
@@ -84,62 +152,45 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: clamp(1rem, 2vw, 1.8rem);
-            margin: clamp(1.5rem, 4vw, 2.8rem) 0;
+            margin: 0 2rem 2rem 2rem;
         }
 
-        /* member card */
         .member-card {
-            background: #ffffffd9;
-            backdrop-filter: blur(4px);
-            border-radius: clamp(24px, 4vw, 36px);
+            background: #fefcf8;
+            border-radius: clamp(24px, 4vw, 32px);
             padding: clamp(1.2rem, 3vw, 1.8rem) 0.8rem;
-            box-shadow: 0 12px 24px -16px rgba(70, 60, 30, 0.12), 0 0 0 1px #ece0c8 inset;
+            box-shadow: 0 8px 20px -12px rgba(70, 60, 30, 0.12), 0 0 0 1px #f0e5d8;
             text-align: center;
             transition: all 0.2s;
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
+        }
+        .member-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 28px -14px rgba(0,0,0,0.15);
         }
 
-        /* photo container */
         .member-photo {
             width: clamp(90px, 20vw, 130px);
             height: clamp(90px, 20vw, 130px);
             border-radius: 50%;
-            background: linear-gradient(145deg, #ebe1cd, #ddd0b4);
+            background: linear-gradient(145deg, #f5efdf, #e5dac4);
             box-shadow: 0 8px 14px -6px rgba(100, 80, 40, 0.2), 0 0 0 4px white, 0 0 0 5px #cfbd95;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden; /* Important for image cropping */
+            overflow: hidden;
         }
-
         .member-photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            transition: transform 0.3s ease;
+            transition: transform 0.25s;
         }
-
         .member-card:hover .member-photo img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
-        .member-name {
-            font-size: clamp(1.3rem, 4vw, 1.9rem);
-            font-weight: 700;
-            color: #405332;
-            letter-spacing: -0.3px;
-            line-height: 1.2;
-            margin-bottom: 0.25rem;
-            word-break: break-word;
-            padding: 0 0.3rem;
-        }
-
-        /* AKA wrapper */
         .aka-wrapper {
             background: #f1ecdbb0;
             border-radius: 50px;
@@ -148,70 +199,59 @@
             display: inline-flex;
             align-items: center;
             gap: 0.3rem;
-            border: 1px solid #dac99e;
-            font-size: clamp(0.9rem, 3vw, 1.15rem);
+            border: 1px solid #e0d1b2;
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
             color: #6e5f3f;
             backdrop-filter: blur(2px);
-            max-width: 90%;
             flex-wrap: wrap;
             justify-content: center;
         }
-
-        .aka-prefix {
-            font-weight: 300;
-            text-transform: uppercase;
-            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
-            letter-spacing: 1px;
-            color: #a38f60;
-        }
-
         .aka-editable {
             background: transparent;
             border: 1px solid #ddd0b0;
             border-radius: 30px;
-            padding: 0.2rem 0.5rem;
+            padding: 0.2rem 0.6rem;
             font-family: 'Inter', sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             color: #435735;
             font-size: clamp(0.9rem, 3vw, 1.1rem);
             min-width: 70px;
-            max-width: 120px;
             text-align: center;
         }
-
         .aka-editable:focus {
             background: white;
             outline: none;
             border-color: #b09f78;
-            box-shadow: 0 0 0 3px #e9dcbf;
+            box-shadow: 0 0 0 2px #e9dcbf;
+        }
+        .member-role {
+            font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+            color: #9b8967;
+            font-weight: 500;
+            margin-top: 0.2rem;
+            letter-spacing: 0.3px;
         }
 
-        .member-role {
-            font-size: clamp(0.7rem, 2.5vw, 0.9rem);
-            color: #8d7d5e;
-            font-weight: 400;
-            margin-top: 0.2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        /* leader special style */
+        .leader-card {
+            margin: 0 2rem 2rem 2rem;
+            background: #fffcf4;
+            border: 1px solid #e9dcbe;
         }
 
         /* join section */
         .join-request-section {
-            margin: clamp(2rem, 5vw, 3.8rem) 0 1.5rem;
-            background: #ece5d6b3;
-            backdrop-filter: blur(6px);
-            border-radius: clamp(40px, 8vw, 90px);
+            margin: 1rem 2rem 2rem 2rem;
+            background: #faf7f0;
+            border-radius: clamp(40px, 8vw, 70px);
             padding: clamp(1.5rem, 4vw, 2.5rem);
-            border: 1px solid #e2d2b2;
-            box-shadow: 0 8px 18px -8px rgba(120, 100, 60, 0.08);
+            border: 1px solid #e8ddc2;
             text-align: center;
         }
-
         .join-request-section h2 {
-            font-size: clamp(1.5rem, 5vw, 2.4rem);
-            font-weight: 600;
+            font-size: clamp(1.4rem, 5vw, 2.2rem);
+            font-weight: 700;
             color: #5f724b;
-            letter-spacing: -0.3px;
             margin-bottom: 1rem;
             display: flex;
             align-items: center;
@@ -219,333 +259,275 @@
             gap: 0.5rem;
             flex-wrap: wrap;
         }
-
         .qr-code-frame {
             display: inline-block;
             background: white;
-            padding: 0.5rem;
+            padding: 0.6rem;
             border-radius: clamp(30px, 6vw, 48px);
-            box-shadow: 0 8px 18px -6px #b3a27d;
+            box-shadow: 0 10px 18px -8px #cfc2a2;
             margin: 0.5rem auto;
         }
-
         .qr-code-img {
-            max-width: min(180px, 50vw);
+            max-width: min(170px, 45vw);
             width: 100%;
-            border-radius: clamp(20px, 4vw, 30px);
+            border-radius: clamp(20px, 4vw, 28px);
             background: #faf3e3;
             border: 2px solid #cfb787;
         }
-
         .btn-join {
             background: #cbb281;
             border: none;
             color: #283e20;
-            font-size: clamp(1.2rem, 4vw, 1.8rem);
-            font-weight: 600;
-            padding: 0.8rem clamp(1.5rem, 4vw, 3rem);
+            font-size: clamp(1.1rem, 4vw, 1.6rem);
+            font-weight: 700;
+            padding: 0.7rem 2rem;
             border-radius: 90px;
-            box-shadow: 0 6px 0 #8d744b, 0 10px 20px -8px #ab925e;
+            box-shadow: 0 6px 0 #8d744b;
             cursor: pointer;
             transition: 0.05s linear;
             border: 1px solid #f5edcd;
             margin-top: 1.5rem;
-            font-family: 'Inter', sans-serif;
             display: inline-flex;
             align-items: center;
             gap: 0.8rem;
-            width: auto;
-            max-width: 100%;
         }
-
         .btn-join:active {
-            transform: translateY(5px);
+            transform: translateY(4px);
             box-shadow: 0 2px 0 #8d744b;
         }
-
-        .btn-join i {
-            font-size: clamp(1rem, 3vw, 1.5rem);
-        }
-
-        /* footer */
         .clan-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 1.5rem;
-            color: #7f6e51;
-            border-top: 1px solid #ddcfb1;
-            padding-top: 1.5rem;
+            margin: 0 2rem 2rem 2rem;
+            color: #9f8e6b;
+            border-top: 1px solid #efe3cf;
+            padding-top: 1.2rem;
             flex-wrap: wrap;
             gap: 1rem;
-            font-weight: 300;
-            font-size: clamp(0.8rem, 2.5vw, 1rem);
+            font-size: 0.8rem;
         }
-
         .edit-hint {
-            background: #e7decb;
+            background: #f5efdf;
             padding: 0.3rem 1rem;
             border-radius: 40px;
-            font-size: clamp(0.7rem, 2.5vw, 0.9rem);
-            color: #5b533b;
+            font-size: 0.75rem;
         }
 
-        /* Responsive breakpoints */
-        @media (max-width: 700px) {
+        /* responsive */
+        @media (max-width: 780px) {
+            .members-grid {
+                gap: 1rem;
+                margin: 0 1rem 1.5rem 1rem;
+            }
+            .profile-header, .cover-info, .leader-card, .join-request-section, .clan-footer {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+        @media (max-width: 680px) {
             .members-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
             }
-            
             .member-card:first-child {
                 grid-column: span 2;
-                max-width: 350px;
+                max-width: 380px;
                 margin: 0 auto;
+                width: 100%;
+            }
+            .profile-header {
+                flex-direction: column;
+                justify-content: center;
+                gap: 0.8rem;
+                text-align: center;
+            }
+            .logo-name {
+                justify-content: center;
             }
         }
-
-        @media (max-width: 480px) {
-            body {
-                padding: 0.5rem;
+        @media (max-width: 500px) {
+            .cover-info {
+                padding: 1rem;
             }
-            
             .members-grid {
+                margin: 0 1rem 1.5rem 1rem;
                 gap: 0.8rem;
             }
-            
-            .member-card {
-                padding: 1rem 0.5rem;
+            .join-request-section {
+                margin: 1rem;
             }
-            
-            .aka-wrapper {
-                padding: 0.3rem 0.8rem;
-            }
-            
-            .btn-join {
-                padding: 0.6rem 1.2rem;
-                font-size: 1.1rem;
-            }
-            
-            .join-request-section h2 i {
-                display: none;
-            }
-            
             .clan-footer {
+                margin: 0 1rem 1.5rem 1rem;
                 flex-direction: column;
                 text-align: center;
             }
         }
-
-        @media (max-width: 360px) {
+        @media (max-width: 450px) {
             .members-grid {
                 grid-template-columns: 1fr;
             }
-            
             .member-card:first-child {
                 grid-column: auto;
             }
-            
-            .aka-editable {
-                min-width: 60px;
+            .clan-motto {
+                flex-direction: column;
+                gap: 0.5rem;
             }
         }
 
-        /* Fix for very small screens */
-        @media (max-width: 320px) {
-            .aka-wrapper {
-                flex-direction: column;
-                gap: 0.2rem;
+        /* PC-specific centering reinforcement */
+        @media (min-width: 1024px) {
+            .cover-info {
+                text-align: center;
             }
-            
-            .clan-tagline {
-                flex-direction: column;
-                gap: 0.3rem;
+            .clan-title-large {
+                justify-content: center;
+            }
+            .clan-motto {
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <div class="clan-portfolio">
-        <!-- header -->
-        <div class="clan-header">
-            <h1>GALUNGGONG</h1>
-            <div class="clan-tagline">
-                <i class="fas fa-crosshairs"></i> PUBGM · ELITE SQUAD <i class="fas fa-skull"></i>
+        <!-- COVER SECTION: clean image + separate text below (no overlay) -->
+        <div class="cover-section">
+            <img src="images/gglogo.jpg" alt="Galunggong Clan Cover" class="cover-img" 
+                 onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'500\' viewBox=\'0 0 1200 500\'%3E%3Crect width=\'1200\' height=\'500\' fill=\'%233b5e2b\'/%3E%3Ccircle cx=\'600\' cy=\'210\' r=\'110\' fill=\'%23e9c886\'/%3E%3Ctext x=\'600\' y=\'300\' font-size=\'80\' text-anchor=\'middle\' fill=\'%23fff3cf\' font-weight=\'800\'%3EGALUNGGONG%3C/text%3E%3Ctext x=\'600\' y=\'380\' font-size=\'32\' fill=\'%23fdebb3\' text-anchor=\'middle\'%3EELITE SQUAD%3C/text%3E%3C/svg%3E';">
+        </div>
+        
+        <!-- info below cover — FULLY CENTERED now on all devices -->
+        <div class="cover-info">
+            <div class="clan-title-large">
+                <i class="fas fa-fish"></i> GALUNGGONG CLAN
+                <i class="fas fa-skull-crossbones"></i>
+            </div>
+            <div class="clan-motto">
+                <span><i class="fas fa-trophy"></i> PUBGM ELITE SQUAD · 2025 CHAMPIONS MENTALITY</span>
+                <span class="clan-badge-mini"><i class="fas fa-fire"></i> #1 GALUNGGONG ARMY</span>
             </div>
         </div>
 
-        <!-- ROW 1: LEADER (SARJ) -->
-        <div class="member-card" style="max-width: 350px; width: 100%; margin: 0 auto 2rem;">
+        <!-- profile row with small logo + tagline (balanced) -->
+        <div class="profile-header">
+            <div class="logo-name">
+                <img src="images/gglogo.jpg" alt="GG Logo" class="small-logo" 
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'%3E%3Ccircle cx=\'100\' cy=\'100\' r=\'95\' fill=\'%23c2a156\'/%3E%3Ctext x=\'100\' y=\'130\' font-size=\'50\' text-anchor=\'middle\' fill=\'%23fef6cf\' font-weight=\'bold\'%3EGG%3C/text%3E%3C/svg%3E';">
+                <span style="font-weight: 700; font-size: 1.2rem; color:#4d613f;">GALUNGGONG</span>
+            </div>
+            <div class="clan-tagline">
+                <i class="fas fa-crosshairs"></i> PUBGM · OFFICIAL ROSTER
+            </div>
+        </div>
+
+        <!-- LEADER SECTION (SARJ) -->
+        <div class="member-card leader-card" style="max-width: 380px; width: calc(100% - 2rem); margin: 0 auto 2rem auto;">
             <div class="member-photo">
                 <img src="images/sarj.jpg" alt="Jhon Joven - SARJ">
             </div>
-            <div class="member-name"></div>
-            
             <div class="aka-wrapper">
-                <span class="aka-prefix"></span>
                 <input type="text" class="aka-editable" value="SARJ" placeholder="SARJ">
             </div>
-            
-            <div style="background: #f0e8d6; color: #4d613f; padding: 0.25rem 1rem; border-radius: 40px; font-size: 0.8rem; font-weight: 500; display: inline-block; margin: 0.3rem 0; border: 1px solid #d2bd8f;">
+            <div style="background: #f0e8d6; color: #4d613f; padding: 0.25rem 1rem; border-radius: 40px; font-size: 0.75rem; font-weight: 600; margin: 0.2rem 0;">
                 ★ FOUNDER · IGL ★
             </div>
-            
             <div class="member-role">LEADER PALAGI</div>
         </div>
 
-        <!-- ROW 2: 3 members -->
+        <!-- MEMBERS GRID 1 -->
         <div class="members-grid">
-            <!-- Henry -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/lax.jpg" alt="Henry Agcaoili - LEELAX">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="LEELAX" placeholder="LEELAX">
-                </div>
+                <div class="member-photo"><img src="images/lax.jpg" alt="Henry Agcaoili"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="LEELAX" placeholder="LEELAX"></div>
                 <div class="member-role">REKLAMADOR PALAGI</div>
             </div>
-            
-            <!-- Chin -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/flusha.jpg" alt="Chin Santiago - FLUSHA">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="FLUSHA" placeholder="FLUSHA">
-                </div>
+                <div class="member-photo"><img src="images/flusha.jpg" alt="Chin Santiago"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="FLUSHA" placeholder="FLUSHA"></div>
                 <div class="member-role">THE FOOL LOVER</div>
             </div>
-            
-            <!-- Jon -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/jon.jpg" alt="Jon Cantos Gunio - JON">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="JON" placeholder="JON">
-                </div>
+                <div class="member-photo"><img src="images/jon.jpg" alt="Jon Cantos Gunio"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="JON" placeholder="JON"></div>
                 <div class="member-role">PALYADONG FLANKER</div>
             </div>
         </div>
 
-        <!-- ROW 3: next 3 -->
+        <!-- MEMBERS GRID 2 -->
         <div class="members-grid">
-            <!-- Regiel -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/bon.jpg" alt="Regiel Loking - BON">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="BON" placeholder="BON">
-                </div>
+                <div class="member-photo"><img src="images/bon.jpg" alt="Regiel Loking"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="BON" placeholder="BON"></div>
                 <div class="member-role">TAGA BULONG</div>
             </div>
-            
-            <!-- Markjervey -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/dong.jpg" alt="Markjervey Ocasion - DONG">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="DONG" placeholder="DONG">
-                </div>
+                <div class="member-photo"><img src="images/dong.jpg" alt="Markjervey Ocasion"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="DONG" placeholder="DONG"></div>
                 <div class="member-role">SUKI NG TRASTOK</div>
             </div>
-            
-            <!-- Francis -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/kernel.jpg" alt="Francis John Ocasio - KERNEL">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="KERNEL" placeholder="KERNEL">
-                </div>
+                <div class="member-photo"><img src="images/kernel.jpg" alt="Francis John Ocasio"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="KERNEL" placeholder="KERNEL"></div>
                 <div class="member-role">PAREHAS SILA NI DONG</div>
             </div>
         </div>
 
-        <!-- ROW 4: last 3 -->
+        <!-- MEMBERS GRID 3 -->
         <div class="members-grid">
-            <!-- Mico -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/aesy.jpg" alt="Mico Chan - AESY">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="AESY" placeholder="AESY">
-                </div>
+                <div class="member-photo"><img src="images/aesy.jpg" alt="Mico Chan"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="AESY" placeholder="AESY"></div>
                 <div class="member-role">NAGPAPAHINGA</div>
             </div>
-            
-            <!-- Philip -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/nexus.jpg" alt="Philip Kayle Pasatiempo - NEXUS">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="NEXUS" placeholder="NEXUS">
-                </div>
+                <div class="member-photo"><img src="images/nexus.jpg" alt="Philip Kayle Pasatiempo"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="NEXUS" placeholder="NEXUS"></div>
                 <div class="member-role">SPINNER NA HINDI DRAWING ANG BAHAY</div>
             </div>
-            
-            <!-- Kevin -->
             <div class="member-card">
-                <div class="member-photo">
-                    <img src="images/khenn.jpg" alt="Kevin Bascuguin - KHENN">
-                </div>
-                <div class="member-name"></div>
-                <div class="aka-wrapper">
-                    <span class="aka-prefix"></span>
-                    <input type="text" class="aka-editable" value="KHENN" placeholder="KHENN">
-                </div>
+                <div class="member-photo"><img src="images/khenn.jpg" alt="Kevin Bascuguin"></div>
+                <div class="aka-wrapper"><input type="text" class="aka-editable" value="KHENN" placeholder="KHENN"></div>
                 <div class="member-role">TAGA AYA MAGLARO PERO LAGING WALA</div>
             </div>
         </div>
 
         <!-- JOIN SECTION -->
         <div class="join-request-section">
-            <h2>
-                <i class="fas fa-hand-peace"></i> 
-                REQUEST TO JOIN 
-                <i class="fas fa-hand-peace"></i>
-            </h2>
+            <h2><i class="fas fa-hand-peace"></i> REQUEST TO JOIN <i class="fas fa-hand-peace"></i></h2>
             <div class="qr-code-frame">
-                <img src="2.png" alt="QR code" class="qr-code-img" onerror="this.src='https://via.placeholder.com/300/f1ebdd/9b8c66?text=QR+2.JPG';">
+                <img src="2.png" alt="QR Code" class="qr-code-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\' viewBox=\'0 0 300 300\'%3E%3Crect width=\'300\' height=\'300\' fill=\'%23f5eddb\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' font-size=\'26\' fill=\'%23816f48\' text-anchor=\'middle\' dy=\'.3em\'%3E⚡SCAN QR⚡%3C/text%3E%3C/svg%3E';">
             </div>
-            <div style="color: #7b6a48; margin: 0.3rem 0;">scan to apply · or tap below</div>
+            <div style="color: #7b6a48; margin-top: 0.5rem;">scan to apply · or tap below</div>
             <button class="btn-join" id="joinNowBtn">
                 <i class="fas fa-dragon"></i> JOIN NOW <i class="fas fa-dragon"></i>
             </button>
         </div>
 
-        <!-- footer -->
         <div class="clan-footer">
             <div><i class="fas fa-fish"></i> LABAN GALUNGGONG! IPUSH YAN JUSKUPUNAMAN</div>
-            
+            <div class="edit-hint"><i class="fas fa-edit"></i> click any nickname to edit AKA</div>
         </div>
     </div>
 
     <script>
-    document.getElementById('joinNowBtn').addEventListener('click', function() {
-        window.location.href = 'join.html';
-    });
+        document.getElementById('joinNowBtn').addEventListener('click', function() {
+            window.location.href = 'join.html';
+        });
+        // graceful image fallback
+        const imgs = document.querySelectorAll('img');
+        imgs.forEach(img => {
+            img.addEventListener('error', () => {
+                if (!img.dataset.fallback) {
+                    img.dataset.fallback = 'true';
+                    if (img.classList.contains('cover-img')) {
+                        img.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'1200\' height=\'500\' viewBox=\'0 0 1200 500\'%3E%3Crect width=\'1200\' height=\'500\' fill=\'%233b5e2b\'/%3E%3Ccircle cx=\'600\' cy=\'210\' r=\'110\' fill=\'%23e9c886\'/%3E%3Ctext x=\'600\' y=\'300\' font-size=\'80\' text-anchor=\'middle\' fill=\'%23fff3cf\' font-weight=\'800\'%3EGALUNGGONG%3C/text%3E%3Ctext x=\'600\' y=\'380\' font-size=\'32\' fill=\'%23fdebb3\' text-anchor=\'middle\'%3EELITE SQUAD%3C/text%3E%3C/svg%3E';
+                    } else if (img.classList.contains('small-logo')) {
+                        img.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\' viewBox=\'0 0 200 200\'%3E%3Ccircle cx=\'100\' cy=\'100\' r=\'95\' fill=\'%23c2a156\'/%3E%3Ctext x=\'100\' y=\'130\' font-size=\'50\' text-anchor=\'middle\' fill=\'%23fef6cf\' font-weight=\'bold\'%3EGG%3C/text%3E%3C/svg%3E';
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
